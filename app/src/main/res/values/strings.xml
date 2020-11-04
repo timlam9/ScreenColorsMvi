@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ScreenColorsMvi</string>
+    <string name="change_color">Change color</string>
+</resources>
