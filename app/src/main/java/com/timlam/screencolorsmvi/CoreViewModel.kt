@@ -41,7 +41,7 @@ class CoreViewModel constructor(
         state.value = newState
     }
 
-    private fun setEffect(builder: () -> CoreContract.Effect) {
+    fun setEffect(builder: () -> CoreContract.Effect) {
         val effectValue = builder()
         viewModelScope.launch { effect.send(effectValue) }
     }

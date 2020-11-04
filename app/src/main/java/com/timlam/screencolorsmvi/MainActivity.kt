@@ -1,19 +1,15 @@
 package com.timlam.screencolorsmvi
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
+import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 
 @ExperimentalCoroutinesApi
@@ -31,7 +27,8 @@ class MainActivity : AppCompatActivity() {
 
         initViews()
         setClickListeners()
-        initViewModel()
+        onStateChanged()
+        onEffectReceived { effect(it) }
     }
 
     private fun initViews() {
@@ -44,13 +41,18 @@ class MainActivity : AppCompatActivity() {
             val event = CoreContract.Event.OnChangeColorClicked
             coreViewModel.onEvent(event)
         }
+
+        mainBg.setOnClickListener {
+            val message = "Click the button to change the bg color"
+            val effect = CoreContract.Effect.ShowToast(message)
+            coreViewModel.setEffect { effect }
+        }
     }
 
-    private fun initViewModel() {
+    private fun onStateChanged() {
         lifecycleScope.launch {
             coreViewModel.state()
                 .collect {
-                    Log.d("TAGARA", "Collect: ${it.color}")
                     when (it.color) {
                         0 -> mainBg.setBackgroundColor(ContextCompat.getColor(this@MainActivity, R.color.purple_200))
                         1 -> mainBg.setBackgroundColor(ContextCompat.getColor(this@MainActivity, R.color.purple_500))
@@ -58,9 +60,26 @@ class MainActivity : AppCompatActivity() {
                         3 -> mainBg.setBackgroundColor(ContextCompat.getColor(this@MainActivity, R.color.teal_200))
                         4 -> mainBg.setBackgroundColor(ContextCompat.getColor(this@MainActivity, R.color.teal_700))
                         5 -> mainBg.setBackgroundColor(ContextCompat.getColor(this@MainActivity, R.color.black))
+                        else -> mainBg.setBackgroundColor(ContextCompat.getColor(this@MainActivity, R.color.white))
                     }
                 }
         }
+    }
+
+    private fun onEffectReceived(observe: (effect: CoreContract.Effect) -> Unit) {
+        lifecycleScope.launch {
+            coreViewModel.effect().collect { observe(it) }
+        }
+    }
+
+    private fun effect(effect: CoreContract.Effect) {
+        when (effect) {
+            is CoreContract.Effect.ShowToast -> showToast(effect.message)
+        }
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(this@MainActivity, message, Toast.LENGTH_SHORT).show()
     }
 
 }
