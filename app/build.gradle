@@ -9,13 +9,13 @@ apply from: "../versions.gradle"
 apply from: "../dependencies.gradle"
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion versions.compile_sdk
     buildToolsVersion "30.0.2"
 
     defaultConfig {
         applicationId "com.timlam.screencolorsmvi"
-        minSdkVersion 21
-        targetSdkVersion 30
+        minSdkVersion versions.min_sdk
+        targetSdkVersion versions.target_sdk
         versionCode 1
         versionName "1.0"
 
