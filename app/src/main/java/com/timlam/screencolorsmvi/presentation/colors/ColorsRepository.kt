@@ -1,8 +1,8 @@
-package com.timlam.screencolorsmvi
+package com.timlam.screencolorsmvi.presentation.colors
 
 import kotlin.random.Random
 
-class CoreRepository {
+class ColorsRepository {
 
     fun getColor(previousColor: Int): Int = getRandomColor(previousColor)
 
