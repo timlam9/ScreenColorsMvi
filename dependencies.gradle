@@ -1,0 +1,125 @@
+ext.deps = [
+//        'module'                 : [
+                // Domain
+//                'domain'      : project(':domain'),
+
+                // Data
+//                'data'        : project(':data'),
+//                'network'     : project(':network'),
+//        ],
+
+        'plugins'                : [
+                'android_gradle_plugin': "com.android.tools.build:gradle:$versions.android_gradle_plugin",
+                'play_services'        : "com.google.gms:google-services:$versions.google_services",
+                'kotlin'               : [
+                        'platform'          : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin",
+                        'android_extensions': "org.jetbrains.kotlin:kotlin-android-extensions:$versions.kotlin",
+                ],
+                'versions'             : "com.github.ben-manes:gradle-versions-plugin:$versions.versions_plugin"
+        ],
+
+        'kotlin'                 : [
+                'language'          : "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin",
+                'reflect'           : "org.jetbrains.kotlin:kotlin-reflect:$versions.kotlin",
+                'coroutines'        : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutines",
+                'coroutines_android': "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutines"
+        ],
+
+        'android'                : [
+                'appcompat'        : "androidx.appcompat:appcompat:$versions.appcompat",
+                'recyclerview'     : "androidx.recyclerview:recyclerview:$versions.recyclerview",
+                'browser'          : "androidx.browser:browser:$versions.browser",
+                'cardview'         : "androidx.cardview:cardview:$versions.cardview",
+                'core_ktx'         : "androidx.core:core-ktx:$versions.core_ktx",
+                'constraint_layout': "androidx.constraintlayout:constraintlayout:$versions.constraint_layout",
+                'legacy'           : "androidx.legacy:legacy-support-v4:$versions.legacy",
+                'fragment'         : [
+                        'core': "androidx.fragment:fragment:$versions.fragment",
+                        'ktx' : "androidx.fragment:fragment-ktx:$versions.fragment"
+                ],
+                'activity'         : [
+                        'core': "androidx.activity:activity:$versions.activity",
+                        'ktx' : "androidx.activity:activity-ktx:$versions.activity"
+                ]
+        ],
+
+        'material'               : [
+                'material': "com.google.android.material:material:$versions.material",
+        ],
+
+        'architecture_components': [
+                'lifecycle' : [
+                        'runtime'   : "androidx.lifecycle:lifecycle-runtime:$versions.lifecycle",
+                        'common'    : "androidx.lifecycle:lifecycle-common-java8:$versions.lifecycle",
+                        'extensions': "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle",
+                        'viewmodel' : "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycle"
+                ],
+                'room'      : [
+                        'runtime' : "androidx.room:room-runtime:$versions.room",
+                        'compiler': "androidx.room:room-compiler:$versions.room",
+                ],
+                'view_model': "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycle"
+        ],
+
+        'di'                     : [
+                'koin': [
+                        'core'               : "org.koin:koin-core:$versions.koin",
+                        'android'            : "org.koin:koin-android:$versions.koin",
+                        'androidx_scope'     : "org.koin:koin-androidx-scope:$versions.koin",
+                        'androidx_view_model': "org.koin:koin-androidx-viewmodel:$versions.koin"
+                ]
+        ],
+
+        'network'                : [
+                'retrofit': [
+                        'core'    : "com.squareup.retrofit2:retrofit:$versions.retrofit",
+                        'legacy'  : "com.squareup.retrofit:retrofit:$versions.retrofit_legacy",
+                        'gson'    : "com.squareup.retrofit2:converter-gson:$versions.retrofit",
+                        'adapters': [
+                                'rxjava': "com.squareup.retrofit2:adapter-rxjava:$versions.rxjava_adapter",
+                        ],
+                ],
+                'ok_http' : "com.squareup.okhttp:okhttp:$versions.ok_http",
+                'gson'    : "com.google.code.gson:gson:$versions.gson",
+                'logs'    : "com.squareup.okhttp3:logging-interceptor:$versions.logs",
+        ],
+
+        'tooling'                : [
+                'timber'     : "com.jakewharton.timber:timber:$versions.timber",
+        ],
+
+        'test'                   : [
+                'junit'     : "junit:junit:$versions.junit",
+                'mock'      : [
+                        'mockK': "io.mockk:mockk:$versions.mockK"
+                ],
+                'di'        : [
+                        'koin': "org.koin:koin-test:$versions.koin",
+                ],
+                'coroutines': "org.jetbrains.kotlinx:kotlinx-coroutines-test:$versions.coroutines",
+                'network'   : [
+                        'mockwebserver': "com.squareup.okhttp3:mockwebserver:$versions.mockwebserver",
+                ],
+                'android'   : [
+                        'room'       : "android.arch.persistence.room:testing:$versions.room",
+                        'robolectric': "org.robolectric:robolectric:$versions.robolectric"
+                ],
+                'androidx'  : [
+                        'core'    : "androidx.test:core:$versions.androidx_test",
+                        'runner'  : "androidx.test:runner:$versions.androidx_test",
+                        'rules'   : "androidx.test:rules:$versions.androidx_test",
+                        'espresso': "androidx.test.espresso:espresso-core:$versions.espresso_core",
+                        'intents' : "androidx.test.espresso:espresso-intents:$versions.espresso_intents",
+                        'room'    : "androidx.room:room-testing:$versions.room",
+                        'junit'   : "androidx.test.ext:junit:$versions.androidx_test_junit",
+                ],
+                'lint'      : [
+                        'lint'     : "com.android.tools.lint:lint:$versions.lint",
+                        'lintTests': "com.android.tools.lint:lint-tests:$versions.lint",
+                ],
+                'kotest'    : [
+                        'assertions': "io.kotest:kotest-assertions-core-jvm:$versions.kotest"
+                ]
+        ]
+
+]
