@@ -1,12 +1,9 @@
 ext.deps = [
-//        'module'                 : [
-                // Domain
-//                'domain'      : project(':domain'),
-
-                // Data
-//                'data'        : project(':data'),
-//                'network'     : project(':network'),
-//        ],
+        'module'                 : [
+                'domain'      : project(':domain'),
+                'data'        : project(':data')
+//                'network'     : project(':network')
+        ],
 
         'plugins'                : [
                 'android_gradle_plugin': "com.android.tools.build:gradle:$versions.android_gradle_plugin",

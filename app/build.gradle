@@ -38,6 +38,8 @@ android {
 }
 
 dependencies {
+    implementation deps.module.domain
+    implementation deps.module.data
     implementation deps.kotlin.language
     implementation deps.kotlin.coroutines
     implementation deps.kotlin.coroutines_android
