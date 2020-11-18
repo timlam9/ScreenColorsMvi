@@ -62,48 +62,13 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launch {
             colorsViewModel.state().collect {
                 when (it.color) {
-                    0 -> mainBg.setBackgroundColor(
-                        ContextCompat.getColor(
-                            this@MainActivity,
-                            R.color.purple_200
-                        )
-                    )
-                    1 -> mainBg.setBackgroundColor(
-                        ContextCompat.getColor(
-                            this@MainActivity,
-                            R.color.purple_500
-                        )
-                    )
-                    2 -> mainBg.setBackgroundColor(
-                        ContextCompat.getColor(
-                            this@MainActivity,
-                            R.color.purple_700
-                        )
-                    )
-                    3 -> mainBg.setBackgroundColor(
-                        ContextCompat.getColor(
-                            this@MainActivity,
-                            R.color.teal_200
-                        )
-                    )
-                    4 -> mainBg.setBackgroundColor(
-                        ContextCompat.getColor(
-                            this@MainActivity,
-                            R.color.teal_700
-                        )
-                    )
-                    5 -> mainBg.setBackgroundColor(
-                        ContextCompat.getColor(
-                            this@MainActivity,
-                            R.color.black
-                        )
-                    )
-                    else -> mainBg.setBackgroundColor(
-                        ContextCompat.getColor(
-                            this@MainActivity,
-                            R.color.white
-                        )
-                    )
+                    0 -> mainBg.setBackgroundColor(ContextCompat.getColor(this@MainActivity, R.color.purple_200))
+                    1 -> mainBg.setBackgroundColor(ContextCompat.getColor(this@MainActivity, R.color.purple_500))
+                    2 -> mainBg.setBackgroundColor(ContextCompat.getColor(this@MainActivity, R.color.purple_700))
+                    3 -> mainBg.setBackgroundColor(ContextCompat.getColor(this@MainActivity, R.color.teal_200))
+                    4 -> mainBg.setBackgroundColor(ContextCompat.getColor(this@MainActivity, R.color.teal_700))
+                    5 -> mainBg.setBackgroundColor(ContextCompat.getColor(this@MainActivity, R.color.black))
+                    else -> mainBg.setBackgroundColor(ContextCompat.getColor(this@MainActivity, R.color.white))
                 }
             }
         }
