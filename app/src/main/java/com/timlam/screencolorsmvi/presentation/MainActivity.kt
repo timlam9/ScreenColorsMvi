@@ -64,17 +64,14 @@ class MainActivity : AppCompatActivity() {
     private fun onStateChanged() {
         lifecycleScope.launch {
             colorsViewModel.state().collect {
-                when (it.color) {
-                    0 -> mainBg.setBackgroundColor(ContextCompat.getColor(this@MainActivity, R.color.purple_200))
-                    1 -> mainBg.setBackgroundColor(ContextCompat.getColor(this@MainActivity, R.color.purple_500))
-                    2 -> mainBg.setBackgroundColor(ContextCompat.getColor(this@MainActivity, R.color.purple_700))
-                    3 -> mainBg.setBackgroundColor(ContextCompat.getColor(this@MainActivity, R.color.teal_200))
-                    4 -> mainBg.setBackgroundColor(ContextCompat.getColor(this@MainActivity, R.color.teal_700))
-                    5 -> mainBg.setBackgroundColor(ContextCompat.getColor(this@MainActivity, R.color.black))
-                    else -> mainBg.setBackgroundColor(ContextCompat.getColor(this@MainActivity, R.color.white))
-                }
+                // TODO how can I implement the loading state here?
+                changeBackgroundColor(colorsViewModel.getColorFromColorNumber(it.colorNumber))
             }
         }
+    }
+
+    private fun changeBackgroundColor(color: Int) {
+        mainBg.setBackgroundColor(ContextCompat.getColor(this@MainActivity, color))
     }
 
     private fun onEffectReceived(observe: (effect: ColorsContract.Effect) -> Unit) {

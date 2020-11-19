@@ -14,7 +14,7 @@ class ColorsContract {
 
     data class State(
         val isLoading: Boolean = false,
-        val color: Int = 0,
+        val colorNumber: Int = 0,
         val error: String? = null
     ) : UiState
 
