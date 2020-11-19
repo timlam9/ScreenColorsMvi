@@ -19,18 +19,13 @@ class ColorsViewModel constructor(
         }
     }
 
+    //TODO: Left this just to compare the 2 solutions. After i can remove it
     fun showToast(effect: ColorsContract.Effect) {
         setEffect { effect }
     }
 
-//    private fun setState(reduce: ColorsContract.State.() -> ColorsContract.State) {
-//        val newState = currentState.reduce()
-//        state.value = newState
-//    }
-//
-//    fun setEffect(builder: () -> ColorsContract.Effect) {
-//        val effectValue = builder()
-//        viewModelScope.launch { effect.send(effectValue) }
-//    }
+    fun backgroundClicked() {
+        setEffect { ColorsContract.Effect.ShowColorsToast }
+    }
 
 }
