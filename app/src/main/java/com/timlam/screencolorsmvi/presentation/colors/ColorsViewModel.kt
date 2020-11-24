@@ -1,14 +1,14 @@
 package com.timlam.screencolorsmvi.presentation.colors
 
+import androidx.hilt.lifecycle.ViewModelInject
 import com.timlam.screencolorsmvi.R
 import com.timlam.screencolorsmvi.framework.CoreViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @ExperimentalCoroutinesApi
-class ColorsViewModel constructor(
-    private val repository: ColorsRepository,
-    initialState: ColorsContract.State = ColorsContract.State()
-) : CoreViewModel<ColorsContract.Event, ColorsContract.State, ColorsContract.Effect>(initialState) {
+class ColorsViewModel @ViewModelInject constructor(
+    private val repository: ColorsRepository
+) : CoreViewModel<ColorsContract.Event, ColorsContract.State, ColorsContract.Effect>(ColorsContract.State()) {
 
     override suspend fun handleEvent(event: ColorsContract.Event) {
         when (event) {
