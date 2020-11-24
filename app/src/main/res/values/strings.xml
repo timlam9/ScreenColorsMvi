@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">ScreenColorsMvi</string>
     <string name="change_color">Change color</string>
+    <string name="colors_toast_message">Click the button to change color</string>
 </resources>

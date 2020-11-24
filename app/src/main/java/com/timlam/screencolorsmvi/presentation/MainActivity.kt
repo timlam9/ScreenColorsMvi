@@ -6,6 +6,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
+import com.timlam.screencolorsmvi.R
 import com.timlam.screencolorsmvi.databinding.ActivityMainBinding
 import com.timlam.screencolorsmvi.framework.ViewModelFactory
 import com.timlam.screencolorsmvi.presentation.colors.ColorsContract
@@ -69,7 +70,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun effect(effect: ColorsContract.Effect) {
         when (effect) {
-            is ColorsContract.Effect.ShowColorsToast -> showToast("Click the button to change color")
+            is ColorsContract.Effect.ShowColorsToast -> showToast(getString(R.string.colors_toast_message))
         }
     }
 
