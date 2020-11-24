@@ -1,18 +1,16 @@
 package com.timlam.screencolorsmvi.presentation
 
 import android.os.Bundle
-import android.widget.Button
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
+import com.timlam.screencolorsmvi.databinding.ActivityMainBinding
+import com.timlam.screencolorsmvi.framework.ViewModelFactory
 import com.timlam.screencolorsmvi.presentation.colors.ColorsContract
 import com.timlam.screencolorsmvi.presentation.colors.ColorsRepository
 import com.timlam.screencolorsmvi.presentation.colors.ColorsViewModel
-import com.timlam.screencolorsmvi.R
-import com.timlam.screencolorsmvi.framework.ViewModelFactory
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -20,38 +18,27 @@ import kotlinx.coroutines.launch
 @ExperimentalCoroutinesApi
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var mainBg: ConstraintLayout
-    private lateinit var changeColorButton: Button
-
+    private lateinit var binding: ActivityMainBinding
     private val repository = ColorsRepository()
-    private val colorsViewModel: ColorsViewModel by viewModels {
-        ViewModelFactory(
-            repository
-        )
-    }
+    private val colorsViewModel: ColorsViewModel by viewModels { ViewModelFactory(repository) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        initViews()
         setClickListeners()
         onStateChanged()
         onEffectReceived { effect(it) }
     }
 
-    private fun initViews() {
-        mainBg = findViewById(R.id.main_bg)
-        changeColorButton = findViewById(R.id.change_color_button)
-    }
-
     private fun setClickListeners() {
-        changeColorButton.setOnClickListener {
+        binding.changeColorButton.setOnClickListener {
             val event = ColorsContract.Event.OnChangeColorClicked
             colorsViewModel.onEvent(event)
         }
 
-        mainBg.setOnClickListener {
+        binding.root.setOnClickListener {
 //            TODO: Left this just to compare the 2 solutions. After i can remove it
 //            val message = "Click the button to change the bg color"
 //            val effect = ColorsContract.Effect.ShowToast(message)
@@ -71,7 +58,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun changeBackgroundColor(color: Int) {
-        mainBg.setBackgroundColor(ContextCompat.getColor(this@MainActivity, color))
+        binding.root.setBackgroundColor(ContextCompat.getColor(this@MainActivity, color))
     }
 
     private fun onEffectReceived(observe: (effect: ColorsContract.Effect) -> Unit) {
