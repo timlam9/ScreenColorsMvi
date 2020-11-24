@@ -20,9 +20,6 @@ class ColorsContract {
 
     sealed class Effect : UiEffect {
 
-        //TODO: Left this just to compare the 2 solutions. After i can remove it
-        data class ShowToast(val message: String) : Effect()
-
         object ShowColorsToast : Effect()
 
     }

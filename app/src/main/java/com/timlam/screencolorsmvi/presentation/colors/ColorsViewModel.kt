@@ -18,11 +18,6 @@ class ColorsViewModel constructor(
         }
     }
 
-    //TODO: Left this just to compare the 2 solutions. After i can remove it
-    fun showToast(effect: ColorsContract.Effect) {
-        setEffect { effect }
-    }
-
     fun backgroundClicked() {
         setEffect { ColorsContract.Effect.ShowColorsToast }
     }

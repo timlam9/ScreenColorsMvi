@@ -39,11 +39,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.root.setOnClickListener {
-//            TODO: Left this just to compare the 2 solutions. After i can remove it
-//            val message = "Click the button to change the bg color"
-//            val effect = ColorsContract.Effect.ShowToast(message)
-//            colorsViewModel.showToast(effect)
-
             colorsViewModel.backgroundClicked()
         }
     }
@@ -52,6 +47,11 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launch {
             colorsViewModel.state().collect {
                 // TODO how can I implement the loading state here?
+//                when {
+//                    it.isLoading ->
+//                    it.colorNumber -> changeBackgroundColor(colorsViewModel.getColorFromColorNumber(it.colorNumber))
+//                    it.error ->
+//                }
                 changeBackgroundColor(colorsViewModel.getColorFromColorNumber(it.colorNumber))
             }
         }
@@ -69,7 +69,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun effect(effect: ColorsContract.Effect) {
         when (effect) {
-            is ColorsContract.Effect.ShowToast -> showToast(effect.message)
             is ColorsContract.Effect.ShowColorsToast -> showToast("Click the button to change color")
         }
     }
