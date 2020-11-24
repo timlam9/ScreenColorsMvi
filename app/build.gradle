@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-android-extensions'
     id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 apply from: "../versions.gradle"
@@ -61,6 +62,8 @@ dependencies {
     kapt deps.architecture_components.room.compiler
     implementation deps.material.material
     implementation deps.di.koin.android
+    implementation deps.di.hilt.android
+    kapt deps.di.hilt.compiler
     implementation deps.network.retrofit.legacy
     implementation deps.tooling.timber
 

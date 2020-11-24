@@ -32,6 +32,7 @@ ext.versions = [
 
         // DI
         koin                 : '2.1.5',
+        hilt                 : '2.28-alpha',
 
         // Network
         retrofit             : '2.8.1',

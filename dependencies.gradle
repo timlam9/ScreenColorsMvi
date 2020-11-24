@@ -64,6 +64,10 @@ ext.deps = [
                         'android'            : "org.koin:koin-android:$versions.koin",
                         'androidx_scope'     : "org.koin:koin-androidx-scope:$versions.koin",
                         'androidx_view_model': "org.koin:koin-androidx-viewmodel:$versions.koin"
+                ],
+                'hilt': [
+                        'android'            : "com.google.dagger:hilt-android:$versions.hilt",
+                        'compiler'           : "com.google.dagger:hilt-android-compiler:$versions.hilt"
                 ]
         ],
 
