@@ -12,9 +12,7 @@ import kotlinx.coroutines.launch
 import timber.log.Timber
 
 @ExperimentalCoroutinesApi
-abstract class CoreViewModel<E : UiEvent, S : UiState, F : UiEffect>(
-    initialState: S
-) : ViewModel() {
+abstract class CoreViewModel<E : UiEvent, S : UiState, F : UiEffect>(initialState: S) : ViewModel() {
 
     private val state: MutableStateFlow<S> = MutableStateFlow(initialState)
 

@@ -35,8 +35,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setClickListeners() {
         binding.changeColorButton.setOnClickListener {
-            val event = ColorsContract.Event.OnChangeColorClicked
-            colorsViewModel.onEvent(event)
+            colorsViewModel.onEvent(ColorsContract.Event.OnChangeColorClicked)
         }
 
         binding.root.setOnClickListener {
