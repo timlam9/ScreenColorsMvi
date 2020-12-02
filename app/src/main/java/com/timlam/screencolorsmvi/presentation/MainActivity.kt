@@ -8,23 +8,18 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import com.timlam.screencolorsmvi.R
 import com.timlam.screencolorsmvi.databinding.ActivityMainBinding
-import com.timlam.screencolorsmvi.framework.ViewModelFactory
 import com.timlam.screencolorsmvi.presentation.colors.ColorsContract
-import com.timlam.screencolorsmvi.presentation.colors.ColorsRepository
 import com.timlam.screencolorsmvi.presentation.colors.ColorsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 @AndroidEntryPoint
 @ExperimentalCoroutinesApi
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    @Inject lateinit var repository: ColorsRepository
-
     private val colorsViewModel: ColorsViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {

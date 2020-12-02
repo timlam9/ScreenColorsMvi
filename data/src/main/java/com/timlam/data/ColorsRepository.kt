@@ -1,10 +1,11 @@
-package com.timlam.screencolorsmvi.presentation.colors
+package com.timlam.data
 
+import com.timlam.domain.ColorsRepository
 import kotlin.random.Random
 
-class ColorsRepository {
+class ColorsRepository : ColorsRepository {
 
-    fun getColor(previousColor: Int): Int = getRandomColor(previousColor)
+    override fun getColor(previousColor: Int): Int = getRandomColor(previousColor)
 
     private fun getRandomColor(previousNumber: Int): Int {
         var nextNumber = Random.nextInt(0, 6)

@@ -1,6 +1,7 @@
 package com.timlam.screencolorsmvi.presentation.colors
 
 import androidx.hilt.lifecycle.ViewModelInject
+import com.timlam.data.ColorsRepository
 import com.timlam.screencolorsmvi.R
 import com.timlam.screencolorsmvi.framework.CoreViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi

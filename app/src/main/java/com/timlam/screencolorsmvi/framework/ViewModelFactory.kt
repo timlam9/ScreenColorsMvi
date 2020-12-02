@@ -2,7 +2,7 @@ package com.timlam.screencolorsmvi.framework
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.timlam.screencolorsmvi.presentation.colors.ColorsRepository
+import com.timlam.data.ColorsRepository
 import com.timlam.screencolorsmvi.presentation.colors.ColorsViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 

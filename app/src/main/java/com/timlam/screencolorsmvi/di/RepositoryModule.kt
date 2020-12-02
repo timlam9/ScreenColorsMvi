@@ -1,6 +1,6 @@
-package com.timlam.screencolorsmvi
+package com.timlam.screencolorsmvi.di
 
-import com.timlam.screencolorsmvi.presentation.colors.ColorsRepository
+import com.timlam.data.ColorsRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
