@@ -3,7 +3,7 @@
     package="com.timlam.screencolorsmvi">
 
     <application
-        android:name=".presentation.ScreenColorsMvi"
+        android:name=".ScreenColorsMvi"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"

@@ -61,6 +61,10 @@ dependencies {
     implementation deps.architecture_components.room.runtime
     kapt deps.architecture_components.room.compiler
     implementation deps.material.material
+    implementation deps.di.koin.core
+    implementation deps.di.koin.android
+    implementation deps.di.koin.androidx_scope
+    implementation deps.di.koin.androidx_view_model
     implementation deps.di.hilt.android
     kapt deps.di.hilt.compiler
     implementation deps.di.hilt.viewmodel

@@ -20,6 +20,7 @@ import kotlinx.coroutines.launch
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+
     private val colorsViewModel: ColorsViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {

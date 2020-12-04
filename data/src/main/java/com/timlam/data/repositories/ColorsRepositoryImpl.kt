@@ -1,9 +1,9 @@
-package com.timlam.data
+package com.timlam.data.repositories
 
-import com.timlam.domain.ColorsRepository
+import com.timlam.domain.repositories.ColorsRepository
 import kotlin.random.Random
 
-class ColorsRepository : ColorsRepository {
+class ColorsRepositoryImpl : ColorsRepository {
 
     override fun getColor(previousColor: Int): Int = getRandomColor(previousColor)
 

@@ -1,4 +1,4 @@
-package com.timlam.domain
+package com.timlam.domain.repositories
 
 interface ColorsRepository {
 

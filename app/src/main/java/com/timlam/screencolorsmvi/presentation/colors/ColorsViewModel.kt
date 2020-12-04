@@ -1,20 +1,21 @@
 package com.timlam.screencolorsmvi.presentation.colors
 
 import androidx.hilt.lifecycle.ViewModelInject
-import com.timlam.data.ColorsRepository
+import com.timlam.domain.interactors.GetColorUseCase
 import com.timlam.screencolorsmvi.R
 import com.timlam.screencolorsmvi.framework.CoreViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @ExperimentalCoroutinesApi
 class ColorsViewModel @ViewModelInject constructor(
-    private val repository: ColorsRepository
+    private val getColor: GetColorUseCase
 ) : CoreViewModel<ColorsContract.Event, ColorsContract.State, ColorsContract.Effect>(ColorsContract.State()) {
 
     override suspend fun handleEvent(event: ColorsContract.Event) {
+        val newColor = getColor(currentState.colorNumber)
         when (event) {
             is ColorsContract.Event.OnChangeColorClicked -> setState {
-                copy(colorNumber = repository.getColor(currentState.colorNumber))
+                copy(colorNumber = newColor)
             }
         }
     }
