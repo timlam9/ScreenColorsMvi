@@ -46,13 +46,11 @@ class MainActivity : AppCompatActivity() {
     private fun onStateChanged() {
         lifecycleScope.launch {
             colorsViewModel.state().collect {
-                // TODO how can I implement the loading state here?
-//                when {
-//                    it.isLoading ->
-//                    it.colorNumber -> changeBackgroundColor(colorsViewModel.getColorFromColorNumber(it.colorNumber))
-//                    it.error ->
-//                }
-                changeBackgroundColor(colorsViewModel.getColorFromColorNumber(it.colorNumber))
+                when {
+                    it.isLoading -> showToast(getString(R.string.loading_message))
+                    it.error != null -> showToast(it.error)
+                    else -> changeBackgroundColor(colorsViewModel.getColorFromColorNumber(it.colorNumber))
+                }
             }
         }
     }
