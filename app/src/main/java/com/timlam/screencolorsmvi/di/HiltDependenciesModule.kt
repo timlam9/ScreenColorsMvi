@@ -15,11 +15,9 @@ object HiltDependenciesModule {
 
     @Provides
     @Singleton
-    fun provideColorsRepository(): ColorsRepositoryImpl =
-        ColorsRepositoryImpl()
+    fun provideColorsRepository(): ColorsRepositoryImpl = ColorsRepositoryImpl()
 
     @Provides
-    fun getColorUseCase(): GetColorUseCase =
-        GetColorUseCaseImpl(provideColorsRepository())
+    fun getColorUseCase(): GetColorUseCase = GetColorUseCaseImpl(provideColorsRepository())
 
 }
