@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-android-extensions'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'com.google.gms.google-services'
 }
 
 apply from: "../versions.gradle"
@@ -69,6 +70,8 @@ dependencies {
     kapt deps.di.hilt.compiler
     implementation deps.di.hilt.viewmodel
     kapt deps.di.hilt.compilerx
+    implementation platform(deps.firebase.bom)
+    implementation deps.firebase.firestore
 
     // Hilt testing dependencies
     def hilt_jetpack_version = "1.0.0-alpha02"

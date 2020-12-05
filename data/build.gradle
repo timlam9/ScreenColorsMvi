@@ -18,6 +18,7 @@ dependencies {
     implementation deps.di.koin.android
     implementation deps.network.retrofit.core
     implementation deps.network.retrofit.gson
+    compile 'com.google.firebase:firebase-admin:7.0.1'
 
     testImplementation deps.test.junit
     testImplementation deps.test.di.koin

@@ -46,6 +46,9 @@ ext.versions = [
         // Tooling
         timber               : '4.7.1',
 
+        // Firebase
+        firebase_bom         : '26.1.1',
+
         // Test
         junit                : "4.13.1",
         module_junit         : '2.0.0',

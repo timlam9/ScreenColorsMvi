@@ -91,6 +91,11 @@ ext.deps = [
                 'timber'     : "com.jakewharton.timber:timber:$versions.timber",
         ],
 
+        'firebase'                : [
+                'bom'           : "com.google.firebase:firebase-bom:$versions.firebase_bom",
+                'firestore'     : "com.google.firebase:firebase-firestore-ktx"
+        ],
+
         'test'                   : [
                 'junit'     : "junit:junit:$versions.junit",
                 'mock'      : [
