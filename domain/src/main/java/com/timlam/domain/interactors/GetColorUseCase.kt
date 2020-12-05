@@ -1,9 +1,9 @@
 package com.timlam.domain.interactors
 
-import com.timlam.domain.interactors.BaseUseCase
+import com.timlam.domain.models.AwesomeColor
 
-interface GetColorUseCase : BaseUseCase<Int, Int> {
+interface GetColorUseCase : BaseUseCase<Int, AwesomeColor> {
 
-    override suspend operator fun invoke(colorNumber: Int): Int
+    override suspend operator fun invoke(colorNumber: Int): AwesomeColor
 
 }

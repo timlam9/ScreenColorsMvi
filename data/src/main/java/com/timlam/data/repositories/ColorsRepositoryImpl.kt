@@ -1,11 +1,12 @@
 package com.timlam.data.repositories
 
+import com.timlam.domain.models.AwesomeColor
 import com.timlam.domain.repositories.ColorsRepository
 import kotlin.random.Random
 
 class ColorsRepositoryImpl : ColorsRepository {
 
-    override fun getColor(previousColor: Int): Int = getRandomColor(previousColor)
+    override fun getColor(previousColor: Int): AwesomeColor = AwesomeColor(color = getRandomColor(previousColor))
 
     private fun getRandomColor(previousNumber: Int): Int {
         var nextNumber = Random.nextInt(0, 6)

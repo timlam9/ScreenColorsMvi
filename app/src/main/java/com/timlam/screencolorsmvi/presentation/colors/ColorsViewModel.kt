@@ -8,14 +8,14 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @ExperimentalCoroutinesApi
 class ColorsViewModel @ViewModelInject constructor(
-    private val getColor: GetColorUseCase
+    private val getAwesomeColor: GetColorUseCase
 ) : CoreViewModel<ColorsContract.Event, ColorsContract.State, ColorsContract.Effect>(ColorsContract.State()) {
 
     override suspend fun handleEvent(event: ColorsContract.Event) {
-        val newColor = getColor(currentState.colorNumber)
+        val newAwesomeColor = getAwesomeColor(currentState.colorNumber)
         when (event) {
             is ColorsContract.Event.OnChangeColorClicked -> setState {
-                copy(colorNumber = newColor)
+                copy(colorNumber = newAwesomeColor.color)
             }
         }
     }
@@ -31,7 +31,12 @@ class ColorsViewModel @ViewModelInject constructor(
             2 -> R.color.purple_700
             3 -> R.color.teal_200
             4 -> R.color.teal_700
-            5 -> R.color.black
+            5 -> R.color.red_500
+            6 -> R.color.blue_500
+            7 -> R.color.green_500
+            8 -> R.color.yellow_500
+            9 -> R.color.orange_500
+            10 -> R.color.black
             else -> R.color.white
         }
     }
