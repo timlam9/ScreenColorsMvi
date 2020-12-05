@@ -45,11 +45,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun onStateChanged() {
         lifecycleScope.launch {
-            colorsViewModel.state().collect {
-                when {
-                    it.isLoading -> showToast(getString(R.string.loading_message))
-                    it.error != null -> showToast(it.error)
-                    else -> changeBackgroundColor(colorsViewModel.getColorFromColorNumber(it.colorNumber))
+            colorsViewModel.state().collect { newState ->
+                newState.apply {
+                    when {
+                        isLoading -> showToast(getString(R.string.loading_message))
+                        error != null -> showToast(error)
+                        else -> changeBackgroundColor(colorsViewModel.getColorFromColorNumber(colorNumber))
+                    }
                 }
             }
         }
