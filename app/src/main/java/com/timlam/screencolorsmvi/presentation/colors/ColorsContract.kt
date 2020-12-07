@@ -9,6 +9,7 @@ class ColorsContract {
     sealed class Event : UiEvent {
 
         object OnChangeColorClicked : Event()
+        object OnBackgroundClicked : Event()
 
     }
 

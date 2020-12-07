@@ -12,15 +12,20 @@ class ColorsViewModel @ViewModelInject constructor(
 ) : CoreViewModel<ColorsContract.Event, ColorsContract.State, ColorsContract.Effect>(ColorsContract.State()) {
 
     override suspend fun handleEvent(event: ColorsContract.Event) {
-        val newAwesomeColor = getAwesomeColor(currentState.colorNumber)
         when (event) {
-            is ColorsContract.Event.OnChangeColorClicked -> setState {
-                copy(colorNumber = newAwesomeColor.color)
-            }
+            is ColorsContract.Event.OnChangeColorClicked -> changeColorState()
+            is ColorsContract.Event.OnBackgroundClicked -> backgroundClicked()
         }
     }
 
-    fun backgroundClicked() {
+    private suspend fun changeColorState() {
+        val newAwesomeColor = getAwesomeColor(currentState.colorNumber)
+        setState {
+            copy(colorNumber = newAwesomeColor.color)
+        }
+    }
+
+    private fun backgroundClicked() {
         setEffect { ColorsContract.Effect.ShowColorsToast }
     }
 

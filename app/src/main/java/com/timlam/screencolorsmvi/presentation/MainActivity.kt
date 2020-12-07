@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.root.setOnClickListener {
-            colorsViewModel.backgroundClicked()
+            colorsViewModel.onEvent(ColorsContract.Event.OnBackgroundClicked)
         }
     }
 
