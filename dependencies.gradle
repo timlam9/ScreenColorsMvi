@@ -93,7 +93,8 @@ ext.deps = [
 
         'firebase'                : [
                 'bom'           : "com.google.firebase:firebase-bom:$versions.firebase_bom",
-                'firestore'     : "com.google.firebase:firebase-firestore-ktx"
+                'firestore'     : "com.google.firebase:firebase-firestore-ktx",
+                'coroutines'    : "org.jetbrains.kotlinx-coroutines-play-services:$versions.coroutines_play_services"
         ],
 
         'test'                   : [

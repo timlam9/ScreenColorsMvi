@@ -72,6 +72,7 @@ dependencies {
     kapt deps.di.hilt.compilerx
     implementation platform(deps.firebase.bom)
     implementation deps.firebase.firestore
+    implementation deps.firebase.coroutines
 
     // Hilt testing dependencies
     def hilt_jetpack_version = "1.0.0-alpha02"
