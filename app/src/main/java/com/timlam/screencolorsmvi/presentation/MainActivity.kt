@@ -48,7 +48,8 @@ class MainActivity : AppCompatActivity() {
             colorsViewModel.state().collect { newState ->
                 newState.apply {
                     when {
-                        isLoading -> showToast(getString(R.string.loading_message))
+                        isLoading -> {
+                        }//showToast(getString(R.string.loading_message))
                         error != null -> showToast(error)
                         else -> changeBackgroundColor(colorsViewModel.getColorFromColorNumber(colorNumber))
                     }

@@ -1,19 +1,23 @@
 package com.timlam.screencolorsmvi.presentation.colors
 
 import androidx.hilt.lifecycle.ViewModelInject
+import androidx.lifecycle.viewModelScope
 import com.timlam.domain.interactors.GetColorUseCase
 import com.timlam.screencolorsmvi.R
+import com.timlam.screencolorsmvi.firebase.FirestoreDataSource
 import com.timlam.screencolorsmvi.framework.CoreViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.launch
 
 @ExperimentalCoroutinesApi
 class ColorsViewModel @ViewModelInject constructor(
-    private val getAwesomeColor: GetColorUseCase
+    private val getAwesomeColor: GetColorUseCase,
+    private val firestoreDataSource: FirestoreDataSource
 ) : CoreViewModel<ColorsContract.Event, ColorsContract.State, ColorsContract.Effect>(ColorsContract.State()) {
 
     override suspend fun handleEvent(event: ColorsContract.Event) {
         when (event) {
-            is ColorsContract.Event.OnChangeColorClicked -> changeColorState()
+            is ColorsContract.Event.OnChangeColorClicked -> changeFirestoreColorState()
             is ColorsContract.Event.OnBackgroundClicked -> backgroundClicked()
         }
     }
@@ -43,6 +47,22 @@ class ColorsViewModel @ViewModelInject constructor(
             9 -> R.color.orange_500
             10 -> R.color.black
             else -> R.color.white
+        }
+    }
+
+    private fun changeFirestoreColorState() {
+        viewModelScope.launch {
+            setState { copy(isLoading = true) }
+            try {
+                val newColor = firestoreDataSource.changeColor(state().value.colorNumber) ?: 0
+                setState {
+                    copy(isLoading = false, colorNumber = newColor)
+                }
+            } catch (ex: Exception) {
+                setState {
+                    copy(isLoading = false, error = ex.message)
+                }
+            }
         }
     }
 
